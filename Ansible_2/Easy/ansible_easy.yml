@@ -1,0 +1,15 @@
+---
+  - name: ANSIBLE EASY CHALLENGE
+    hosts: localhost
+    gather_facts: no
+    
+    tasks:
+      - name: TASK_1 - CREATE DIRECTORY "my_ansible_files"
+        file:
+          path: ./my_ansible_files
+          state: directory
+
+      - name: TASK 2 - CREATE FILE "my_file.txt" IN "my_ansible_files" DIRECTORY
+        file:
+          path: ./my_ansible_files/my_file.txt
+          state: touch

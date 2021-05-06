@@ -1,0 +1,16 @@
+---
+  - name: ANSIBLE MEDIUM CHALLENGE
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: TASK 1 - CREATE DIRECTORY "my_ansible_files"
+        file:
+          path: ./my_ansible_files
+          state: directory
+      
+      - name: TASK 2 - CREATE 10 FILES IN "my_ansible_files" DIRECTORY
+        file:
+          path: ./my_ansible_files/router_{{ item }}.cfg
+          state: touch
+        loop: "{{ range(1,11) | list }}"

@@ -1,0 +1,12 @@
+
+##################################
+#      Applicant Data Sheet      #
+##################################
+
+NAME: John Smith
+AGE: 23
+EDUCATION LEVEL: Associates Degree
+
+
+
+##################################

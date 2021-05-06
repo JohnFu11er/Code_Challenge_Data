@@ -1,0 +1,12 @@
+
+##################################
+#      Applicant Data Sheet      #
+##################################
+
+NAME: Susan Smith
+AGE: 27
+EDUCATION LEVEL: Bachelors Degree
+
+
+
+##################################

@@ -1,0 +1,29 @@
+---
+  - name: ANSIBLE HARD CHALLENGE
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: TASK 1 - INITIALIZE VARIABLE DATA
+        include_vars:
+          file: ./applicants_data.yml
+          name: applicants_data
+
+      - name: TASK 2 - CREATE DIRECTORY "job_applicants"
+        file:
+          path: ./job_applicants
+          state: directory
+
+      # TASK 3 is not necessary, but added for ease of process comprehension
+      # Destination files can be created on TASK 4 without TASK 3
+      - name: TASK 3 - CREATE FILES FOR EACH APPLICANT
+        file:
+          path: ./job_applicants/{{ item.value['First name'] }}_{{ item.value['Last name']}}.txt
+          state: touch
+        loop: "{{ applicants_data | dict2items }}"
+
+      - name: TASK 4 - CREATE APPLICANT DATA FORM FROM TEMPLATE
+        template:
+          src: ./templates/interview_form.j2
+          dest: ./job_applicants/{{ item.value['First name'] }}_{{ item.value['Last name']}}.txt
+        loop: "{{ applicants_data | dict2items }}"
