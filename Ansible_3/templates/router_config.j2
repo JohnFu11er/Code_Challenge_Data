@@ -1,0 +1,92 @@
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+{{ item['key'] }}
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+!
+resource policy
+!
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+ip cef
+no ip domain lookup
+ip domain name john.com
+!
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username {{ item['value']['user']['username'] }} privilege 15 0 {{ item['value']['user']['password'] }}
+!
+! 
+!
+!
+!
+!
+!
+{# {% include 'interfaces.j2' %} #}
+!
+{# {% include 'eigrp.j2' %} #}
+!
+no ip http server
+no ip http secure-server
+{# {% include 'static_routes.j2' %} #}
+!
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+ transport output ssh
+line vty 5 14
+ login local
+ transport input ssh
+ transport output ssh
+!
+!
+end

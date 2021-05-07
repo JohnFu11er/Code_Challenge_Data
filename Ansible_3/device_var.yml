@@ -1,0 +1,141 @@
+
+hostnames:
+  Router_1:
+    interfaces:
+      FastEthernet0/0:
+        description: WAN
+        ip: '192.168.222.101'
+        mask: '255.255.255.0'
+      FastEthernet0/1:
+        description: CORE_LAN
+        ip: '10.1.1.1'
+        mask: '255.255.255.0'
+      FastEthernet1/0:
+        description: CROSS_CONNECT
+        ip: '172.16.1.1'
+        mask: '255.255.0.0'
+      FastEthernet2/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+    eigrp:
+      AS: '1'
+      networks:
+        - '10.0.0.0'
+        - '172.16.0.0'
+        - '192.168.222.0'
+    static_routes:
+      - '0.0.0.0 0.0.0.0 192.168.222.1'
+    user:
+      username: bob
+      password: cisco
+  Router_2:
+    interfaces:
+      FastEthernet0/0:
+        description: WAN
+        ip: '192.168.222.102'
+        mask: '255.255.255.0'
+      FastEthernet0/1:
+        description: CORE_LAN
+        ip: '10.2.2.1'
+        mask: '255.255.255.0'
+      FastEthernet1/0:
+        description: CROSS_CONNECT
+        ip: '172.16.1.2'
+        mask: '255.255.0.0'
+      FastEthernet2/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+    eigrp:
+      AS: '1'
+      networks:
+        - '10.0.0.0'
+        - '172.16.0.0'
+    static_routes:
+      - '0.0.0.0 0.0.0.0 192.168.222.1'
+      - '10.1.1.2 255.255.255.255 172.16.1.1'
+    user:
+      username: bill
+      password: cisco
+  Router_3:
+    interfaces:
+      FastEthernet0/0:
+        description: WAN
+        ip: '192.168.222.103'
+        mask: '255.255.255.0'
+      FastEthernet0/1:
+        description: CORE_LAN
+        ip: '10.3.3.1'
+        mask: '255.255.255.0'
+      FastEthernet1/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+      FastEthernet2/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+    eigrp:
+      AS: '1'
+      networks:
+        - '10.0.0.0'
+    static_routes:
+      - '0.0.0.0 0.0.0.0 192.168.222.1'
+    user:
+      username: dave
+      password: cisco
+  Router_4:
+    interfaces:
+      FastEthernet0/0:
+        description: WAN
+        ip: '192.168.222.104'
+        mask: '255.255.255.0'
+      FastEthernet0/1:
+        description: CORE_LAN
+        ip: '10.4.4.1'
+        mask: '255.255.255.0'
+      FastEthernet1/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+      FastEthernet2/0:
+        description: NOT_USED
+        ip: 
+        mask: 
+    eigrp:
+      AS: '1'
+      networks:
+        - '10.0.0.0'
+    static_routes:
+      - '0.0.0.0 0.0.0.0 192.168.222.1'
+    user:
+      username: susan
+      password: cisco
+  Router_5:
+    interfaces:
+      FastEthernet0/0:
+        description: CORE_LAN_TO_ROUTER_1
+        ip: '10.1.1.2'
+        mask: '255.255.255.0'
+      FastEthernet0/1:
+        description: CORE_LAN_TO_ROUTER_2
+        ip: '10.2.2.2'
+        mask: '255.255.255.0'
+      FastEthernet1/0:
+        description: CORE_LAN_TO_ROUTER_3
+        ip: '10.3.3.2'
+        mask: '255.255.255.0'
+      FastEthernet2/0:
+        description: CORE_LAN_TO_ROUTER_4
+        ip: '10.4.4.2'
+        mask: '255.255.255.0'
+    eigrp:
+      AS: '1'
+      networks:
+        - '10.0.0.0'
+    static_routes:
+      - '0.0.0.0 0.0.0.0 192.168.222.1'
+    user:
+      username: george
+      password: cisco
