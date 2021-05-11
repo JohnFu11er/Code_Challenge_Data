@@ -1,0 +1,10 @@
+---
+  - name: EASY CODE REVIEW
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: TASK 1 - CREATE DIRECTORY
+        file:
+          dest: ./router_configs
+          state: directory
