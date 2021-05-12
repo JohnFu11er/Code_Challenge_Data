@@ -1,0 +1,8 @@
+{% for _int in item['value']['interfaces'].keys() %}
+interface {{ _int }}
+ description {{ item['value']['interfaces'][_int]['description'] }}
+ ip address {{ item['value']['interfaces'][_int]['ip'] }} {{ item['value']['interfaces'][_int]['mask'] }}
+ duplex auto
+ speed auto
+!
+{% endfor %}

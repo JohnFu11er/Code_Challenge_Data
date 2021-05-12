@@ -1,0 +1,6 @@
+router eigrp {{ item['value']['eigrp']['AS'] }}
+{% for net in item['value']['eigrp']['networks'] %}
+ network {{ net }}
+{% endfor %}
+ no auto-summary
+

@@ -1,0 +1,27 @@
+---
+  - name: HARD CODE REVIEW
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: TASK 1 - CREATE DIRECTORY
+        file:
+          dest: ./router_configs
+          state: directory
+
+      - name: TASK 2 - LOAD VARIABLE FILE
+        include_vars:
+          file: ../device_var.yml
+          name: router_vars
+
+      - name: TASK 3 - CREATE FILE
+        file:
+          dest: ./router_configs/{{ item.key }}
+          state: touch
+        loop: "{{ router_vars | dict2items }}"
+
+      - name: TASK 4 - BUILD CONFIGS FROM TEMPLATES
+        template:
+          src: ../templates_for_hard/router_config.j2
+          dest: ./router_configs/{{ item.key }}
+        loop: "{{ router_vars | dict2items }}"
