@@ -3,7 +3,7 @@ HARD
 
 The aliquot sum of a number is the sum of the factors of that number, not including itself. 
 
-## Example: 
+Example: 
 The factors of 6 are: 1, 2, 3, 6. Not including the number itself: 1+2+3=6
 The factors of 20 are: 1, 2, 4, 5, 10, 20. Not including the number itself: 1+2+4+5+10=22
 The factors of 8 are: 1, 2, 4, 8. Not including the number itself: 1+2+4=7
