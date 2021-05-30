@@ -26,10 +26,10 @@ def range20_comp():
 def range20_simple():
     ''' returns a list of odd numbers from 1 - 20 '''
     # function
-    _temp = list()
+    temp = list()
     for i in range(1,21,2):
-        _temp.append(i)
-    return _temp
+        temp.append(i)
+    return temp
 
 def range100_comp():
     ''' All even numbers in a range of 100
@@ -39,11 +39,11 @@ def range100_comp():
 def range100_simple():
     ''' All even numbers in a range of 100
     that are both divisible by 2 and 5.'''
-    _data = list()
+    data = list()
     for i in range(0,101,2):
-        if i % 5 == 0: 
-            _data.append(i)
-    return _data
+        if i % 5 == 0:
+            data.append(i)
+    return data
 
 if __name__ == "__main__":
     main()
