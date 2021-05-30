@@ -1,13 +1,9 @@
 '''
 MEDIUM
-Create a conditional and a nested list comprehension to return 
-    1.) All odd numbers in a range of 20
-    2.) All even numbers in a range of 100 that are both divisible by 2 and 5.
-As with the easy challenge, provide a basic for loop as well as the list comprehension for comparative purposes. 
 
-Example
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+Alternate solution for part 2 that allows the user to select
+the range of numbers to test, and the divisors to test for.
+
 '''
 
 def main():

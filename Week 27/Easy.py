@@ -16,10 +16,10 @@ def alpha_comp(data: str):
 
 def alpha_for_loop(data: str):
     ''' Returns a list of all items from a string argument '''
-    _temp = list()
+    temp = list()
     for i in data:
-        _temp.append(i)
-    return _temp
+        temp.append(i)
+    return temp
 
 if __name__ == "__main__":
     main()
